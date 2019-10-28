@@ -22,14 +22,8 @@ public class QuizReview {
             System.out.println("");
         }
 
-        System.out.print("The total of all numbers is: ");
-        int sum = 0;
-        for (int i = 0; i < nums.length; i++) {
-            for (int j = 0; j < nums[i].length; j++) {
-                sum += nums[i][j];
-            }
-        }
-        System.out.println(sum);
+        System.out.print("The total of all numbers is: " + sum(nums));
+
         
         System.out.println("\n=========================================\nProgram 2");
         int x[] = {7, 4, 8, 9, 6, 7, 5, 3, 5, 7, 4, 2, 4, 6};
@@ -64,9 +58,8 @@ public class QuizReview {
     public static int count7(int arr[]) {
         int total = 0;
         for (int i = 0; i < arr.length; i++) {
-            if (arr[i] == 7) {
-                total++;
-            }
+            if (arr[i] == 7) 
+                total++;          
         }
         return total;
     }
@@ -91,6 +84,17 @@ public class QuizReview {
             nums[i] = nums[i + 1];
         nums[nums.length - 1] = first;
         return nums;
+    }
+    
+    public static int sum(int arr[][]){
+        int sum = 0;
+        for (int i = 0; i < arr.length; i++) {
+            for (int j = 0; j < arr[i].length; j++) {
+                sum += arr[i][j];
+            }
+        }
+        
+        return sum;
     }
 
 }
