@@ -5,8 +5,8 @@ import TurtleGraphics.Pen;
 import java.awt.Color;
 
 public class Circle implements Shape{
-    private double xPos, yPos;
-    private double radius;
+    protected double xPos, yPos;
+    protected double radius; //protected means only for 'me and my children' 
     
     public Circle(double x, double y, double r){
         xPos = x;
