@@ -8,77 +8,59 @@ import java.util.Scanner;
 public class makeShapes {
 
     public static void main(String[] args) {
+        Pen p = new StandardPen(new SketchPadWindow(800,600));
         
-        Wheel w = new Wheel(10,10,50,6);
-        System.out.println("Wheel is at " +w.getXPos() + ", " + w.getYPos());
+        Shape s; //can become circle, rect or wheel
+        Circle c; //can become circle or wheel
+        Wheel w; //can only become a wheel
         
-        AbstractShape shp[] = new AbstractShape[10];
-        for (int i = 0; i < shp.length; i++) {
-            if (i < 3) 
-                shp[i] = getRandCircle(); 
-            else if (i < 8) 
-                shp[i] = getRandRect();
-            else{
-                shp[i] = getRandWheel();
-                System.out.println(shp[i]);
-            }
-        }
         
-        StandardPen p = new StandardPen(new SketchPadWindow(640,480));
-        for (AbstractShape shape : shp) {
-            shape.draw(p);
-        }
+        s = new Rect(10,10,10,10);
+        s = new Wheel(10,10,10,10);
+        s = new Circle(10,10,10);
         
+        c = new Circle(10,10,10);
+        c = new Wheel(10,10,10,10);
+        
+        w = new Wheel(10,10,10,10);
+        
+        Shape actual = new Rect (0,0,200,100);
+        actual.draw(p);
         Scanner scan = new Scanner(System.in);
-        for(AbstractShape shape : shp){
-            System.out.println("Press <ENTER> to shrink a shape");
-            scan.nextLine();
-            shape.erase(p);
-            shape.stretchBy(.5);
-            shape.draw(p);
-        }
-        
-        for(AbstractShape shape : shp){
-            System.out.println("Press <ENTER> to move a shape");
-            scan.nextLine();
-            shape.erase(p);
-            shape.move(shape.getXPos()+50, shape.getYPos()+50);
-            shape.draw(p);
-        }
-        
-        System.out.println("Press <ENTER> to make all circles green");
+        System.out.print("Press any key to make it a circle: ");
         scan.nextLine();
-        for (AbstractShape shape: shp){
-            if(shape instanceof Circle || shape instanceof Wheel)
-                ((Circle)shape).turnGreen(p); //this is what casting an object looks like   
-            if (shape instanceof Wheel)
-                System.out.println(shape);           
-        }
+        actual.erase(p);
+        actual = makeShapeFromAnother(actual, 'c');
+        actual.draw(p);
         
-        System.out.println("And wheels have had their spokes set to 20");
-        for (AbstractShape shape : shp) {
-            if (shape instanceof Wheel){
-                shape.erase(p);
-                ((Wheel)shape).setSpoke(20);
-                shape.draw(p);
-            }
-        }
-
-    }
-
-    public static Circle getRandCircle() {
-        Circle temp = new Circle((Math.random() * 400 - 200), (Math.random() * 400 - 200), (Math.random() * 50 + 50));
-        return temp;
+        System.out.print("Press any key to make it a wheel");
+        scan.nextLine();
+        actual.erase(p);
+        actual = makeShapeFromAnother(actual, 'w');
+        actual.draw(p);
     }
     
-     public static Wheel getRandWheel() {
-        Wheel temp = new Wheel((Math.random() * 400 - 200), (Math.random() * 400 - 200), (Math.random() * 50 + 50),10 );
-        return temp;
+    public static Shape makeShapeFromAnother(Shape s, char type){
+        double x = s.getXPos();
+        double y = s.getYPos();
+        double area = s.area();
+        
+        if (type == 'r'){
+            double width = Math.sqrt(area);
+            double height = Math.sqrt(area);
+            return new Rect(x, y, width, height);
+        }
+        else if (type == 'c'){
+            double radius = Math.sqrt(area / Math.PI);
+            return new Circle (x, y, radius);
+        }
+        else{ 
+            //return wheel by defualt
+            double radius = Math.sqrt(area / Math.PI);
+            return new Wheel(x, y, radius, 6);
+        }
     }
-
-    public static Rect getRandRect() {
-        Rect temp = new Rect((Math.random() * 400 - 200), (Math.random() * 400 - 200), (Math.random() * 100 + 50), (Math.random() * 100 + 50));
-        return temp;
-    }
+        
+        
 
 }
