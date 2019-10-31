@@ -7,11 +7,18 @@ import java.awt.Color;
 public class Circle implements Shape{
     protected double xPos, yPos;
     protected double radius; //protected means only for 'me and my children' 
+    protected static double circlecount, avgrad;
     
     public Circle(double x, double y, double r){
         xPos = x;
         yPos = y;
         radius = r;
+        circlecount++;
+        avgrad += r;
+    }
+    
+    public static double getAvgRadius(){
+        return avgrad / circlecount;
     }
     
     @Override
