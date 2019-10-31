@@ -23,7 +23,7 @@ public class makeShapes {
         c = new Wheel(10,10,10,10);
         
         w = new Wheel(10,10,10,10);
-        
+               
         Shape actual = new Rect (0,0,200,100);
         actual.draw(p);
         Scanner scan = new Scanner(System.in);
@@ -38,6 +38,8 @@ public class makeShapes {
         actual.erase(p);
         actual = makeShapeFromAnother(actual, 'w');
         actual.draw(p);
+        
+        
     }
     
     public static Shape makeShapeFromAnother(Shape s, char type){

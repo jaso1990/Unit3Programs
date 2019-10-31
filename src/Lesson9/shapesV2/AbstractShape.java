@@ -2,6 +2,7 @@
 package Lesson9.shapesV2;
 import Lesson9.shapesV1.*;
 import TurtleGraphics.Pen;
+import java.awt.Color;
 
 abstract public class AbstractShape implements Shape{
     
@@ -32,7 +33,7 @@ abstract public class AbstractShape implements Shape{
         return yPos;
     }
     
-    public final void move(double x, double y){
+    public void move(double x, double y){
         xPos = x;
         yPos = y;
     }
@@ -43,6 +44,12 @@ abstract public class AbstractShape implements Shape{
         String str = "X-Y Position= " + xPos + ", " + yPos;
         str += "\nArea= " + area();
         return str;
+    }
+    
+    public final void erase(Pen p) {
+        p.setColor(Color.white);
+        draw(p);
+        p.setColor(Color.blue);
     }
     
     

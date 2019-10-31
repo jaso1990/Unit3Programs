@@ -46,13 +46,7 @@ public class Circle extends AbstractShape{
         str += "\n" + super.toString();
         return str;
     }
-    
-    public void erase(Pen p) {
-        p.setColor(Color.white);
-        draw(p);
-        p.setColor(Color.blue);
-    }
-    
+     
     public void turnGreen(Pen p){
         erase(p);
         p.setColor(Color.green);

@@ -15,6 +15,11 @@ public class Wheel extends Circle {
         spokes = s;
     }
     
+    public Wheel(){
+        super();
+        spokes = 5;
+    }
+    
     //all methods from circle are available to wheel by default
     
     //some methods -> area, get x & get y, stretchBy, move are fine as is from circle class

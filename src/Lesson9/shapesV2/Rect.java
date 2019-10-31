@@ -12,12 +12,12 @@ public class Rect extends AbstractShape{
     
     public Rect(){
         super();
-        height = 1;
-        width = 1;
+        height = 10;
+        width = 10;
     }
     
     public Rect(double x, double y, double w, double h){
-        super();
+        super(x, y);
         height = h;
         width = w;
     }
@@ -51,12 +51,6 @@ public class Rect extends AbstractShape{
         str += "Width: " + width + "\tHeight: " + height;
         str += "\n" + super.toString();
         return str;
-    }
-   
-    public void erase(Pen p) {
-        p.setColor(Color.white);
-        draw(p);
-        p.setColor(Color.blue);
     }
     
 }
