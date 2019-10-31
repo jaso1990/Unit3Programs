@@ -9,11 +9,11 @@ public class Circle extends AbstractShape{
     
     public Circle(){
         super();
-        radius = 1;
+        radius = 10;
     }
     
     public Circle(double x, double y, double r){
-        super();
+        super(x ,y);
         radius = r;
     }
    
