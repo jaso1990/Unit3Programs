@@ -60,29 +60,25 @@ public class Triangle extends AbstractShape{
         //y3 will always be the same as yPos
     }
     
-    //works for equilateral
-    public void Equalmove(double x, double y){
-        xPos = x;
-        yPos = y;
-        x2 = xPos +(base /2);
-        y2 = yPos + base;
-        x3 = xPos + base;
-        y3 = yPos;
+
+    public void move(double x, double y){
+        double xc = x - xPos;
+        double yc = y - yPos;
+        xPos =x;
+        yPos =y;
+        x2 += xc;
+        y2 += yc;
+        x3 += xc;
+        y3 += yc;
+        
     }
     
-    public void move (double x, double y){    
-        xPos = x;
-        yPos = y;
-        x2 =  x2 - x;
-    }
-    
+
     public String toString(){
         String str = "This is a Triangle\n";
         str += "Base Length: " + base;
         str += "\n" + super.toString();
         return str;
-    }
-    
-    
+    } 
     
 }
