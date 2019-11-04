@@ -22,7 +22,7 @@ abstract public class AbstractShape implements Shape{
     abstract public double area();
     abstract public void draw(Pen p);
     abstract public void stretchBy(double fact);
-    
+    abstract public double perimeter();
     //since the following methods are identical in all children classes, we make one method in parent class
     //called final methods
     public final double getXPos(){
@@ -42,8 +42,10 @@ abstract public class AbstractShape implements Shape{
     //child classes have permission to override or extend 
     public String toString(){
         String str = "X-Y Position= " + xPos + ", " + yPos;
-        str += "\nArea= " + area();
+        str += "\nArea: " + area();
+        str += "\nPerimeter: " + perimeter();
         return str;
+        
     }
     
     public final void erase(Pen p) {

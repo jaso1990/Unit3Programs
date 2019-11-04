@@ -17,7 +17,7 @@ public class Wheel extends Circle {
     
     public Wheel(){
         super();
-        spokes = 5;
+        spokes = 6;
     }
     
     //all methods from circle are available to wheel by default
@@ -42,7 +42,7 @@ public class Wheel extends Circle {
     
     
     public String toString(){
-        String str = "Wheel\n======\n";
+        String str = "This is a Wheel\n======\n";
         str += "xPos: " + xPos + ", Ypos " + yPos;
         str += "\nRadius: " + radius;
         str += "\nSpokes: " + spokes;

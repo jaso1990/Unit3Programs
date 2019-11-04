@@ -12,12 +12,9 @@ public class Triangle extends AbstractShape{
     private double y2;
     private double x3;
     private double y3;
-    boolean isEqual; //equalatieral triangle?
+
     
-    public Triangle(){
-        super();
-        base = 1;
-    }
+    
     
     //will create equilatral
     public Triangle(double x, double y, double b){
@@ -27,7 +24,7 @@ public class Triangle extends AbstractShape{
         y2 = yPos + base;
         x3 = xPos + base;
         y3 = yPos;
-        isEqual = true;
+        
     }
     
     public Triangle(double x, double y, double xtwo, double ytwo, double xthree, double ythree){
@@ -36,7 +33,7 @@ public class Triangle extends AbstractShape{
         y2 = ytwo;
         x3 = xthree;
         y3 = ythree;
-        isEqual = false;
+
     }
     
     
@@ -50,14 +47,21 @@ public class Triangle extends AbstractShape{
     }
     
     public double area(){
-        return 0;//return Math.abs((1*y2-x2*y1) + (x2*y3-x3*y2) + (x3*y1-x1*y3)) / 2);
+        return Math.abs((1*y2-x2*yPos) + (x2*y3-x3*y2) + (x3*yPos-xPos*y3)) / 2;
+    }
+    
+    public double perimeter(){
+        double p = Math.sqrt((xPos-x2)*(xPos-x2) + (yPos-y2) * (yPos-y2));
+        p += Math.sqrt((x2-x3)*(x2-x3) + (y2-y3) * (y2-y3));
+        p += Math.sqrt((x3-xPos)*(x3-xPos) + (y3-yPos) * (y3-yPos));
+        return p;
     }
     
     public void stretchBy(double f){
         x2 = (x2 - xPos) * f + xPos;
-        y2 = (yPos - y2) * f + y2;
         x3 = (x3 - xPos) * f + xPos;
-        //y3 will always be the same as yPos
+        y2 = (y2 - yPos) * f + yPos;
+        
     }
     
 
@@ -76,7 +80,7 @@ public class Triangle extends AbstractShape{
 
     public String toString(){
         String str = "This is a Triangle\n";
-        str += "Base Length: " + base;
+        str += "=====================";
         str += "\n" + super.toString();
         return str;
     } 

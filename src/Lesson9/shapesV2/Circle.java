@@ -9,7 +9,7 @@ public class Circle extends AbstractShape{
     
     public Circle(){
         super();
-        radius = 10;
+        radius = 50;
     }
     
     public Circle(double x, double y, double r){
@@ -40,8 +40,13 @@ public class Circle extends AbstractShape{
         }
     }
     
+    public double perimeter(){
+       return 2 * Math.PI * radius;
+    }
+    
     public String toString(){
         String str = "This is a Circle\n";
+        str += "===================\n";
         str += "Radius: " + radius;
         str += "\n" + super.toString();
         return str;

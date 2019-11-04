@@ -12,8 +12,8 @@ public class Rect extends AbstractShape{
     
     public Rect(){
         super();
-        height = 10;
-        width = 10;
+        height = 50;
+        width = 50;
     }
     
     public Rect(double x, double y, double w, double h){
@@ -29,6 +29,10 @@ public class Rect extends AbstractShape{
     public void stretchBy(double factor) {
         width = width * factor;
         height = height * factor;
+    }
+    
+    public double perimeter(){
+       return (width * 2) + (height * 2);
     }
 
     
@@ -48,6 +52,7 @@ public class Rect extends AbstractShape{
 
     public String toString(){
         String str = "This is a Rectangle\n";
+        str += "=====================\n";
         str += "Width: " + width + "\tHeight: " + height;
         str += "\n" + super.toString();
         return str;
