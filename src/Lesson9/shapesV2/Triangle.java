@@ -35,8 +35,7 @@ public class Triangle extends AbstractShape{
         y3 = ythree;
 
     }
-    
-    
+   
     public void draw (Pen p){
         p.up();
         p.move(xPos, yPos);
@@ -64,7 +63,6 @@ public class Triangle extends AbstractShape{
         
     }
     
-
     public void move(double x, double y){
         double xc = x - xPos;
         double yc = y - yPos;
@@ -77,7 +75,6 @@ public class Triangle extends AbstractShape{
         
     }
     
-
     public String toString(){
         String str = "This is a Triangle\n";
         str += "=====================";
